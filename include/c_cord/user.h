@@ -1,5 +1,5 @@
-#ifndef DISCORD_C_USER_H
-#define DISCORD_C_USER_H
+#ifndef C_CORD_USER_H
+#define C_CORD_USER_H
 
 #include "utils.h"
 #include <stdbool.h>

@@ -1,4 +1,4 @@
-#include "discord_c/utils.h"
+#include "c_cord/utils.h"
 #include <curl/curl.h>
 #include <string.h>
 #include <stdlib.h>

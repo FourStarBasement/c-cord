@@ -1,5 +1,5 @@
-#ifndef DISCORD_C_ROLE_H
-#define DISCORD_C_ROLE_H
+#ifndef C_CORD_ROLE_H
+#define C_CORD_ROLE_H
 
 #include "permissions.h"
 #include <stdbool.h>

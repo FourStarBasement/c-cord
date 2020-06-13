@@ -1,5 +1,5 @@
-#ifndef DISCORD_C_EVENTS_H
-#define DISCORD_C_EVENTS_H
+#ifndef C_CORD_EVENTS_H
+#define C_CORD_EVENTS_H
 
 enum EVENT_TYPE {
     CHANNEL_CREATE,

@@ -1,5 +1,5 @@
-#ifndef DISCORD_C_UTILS_H
-#define DISCORD_C_UTILS_H
+#ifndef C_CORD_UTILS_H
+#define C_CORD_UTILS_H
 
 /* epoch */
 #define DISCORD_EPOCH = 1420070400000

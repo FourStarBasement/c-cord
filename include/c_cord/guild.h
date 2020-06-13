@@ -1,9 +1,5 @@
-//
-// Created by intexisty on 5/10/20.
-//
-
-#ifndef DISCORD_C_GUILD_H
-#define DISCORD_C_GUILD_H
+#ifndef C_CORD_GUILD_H
+#define C_CORD_GUILD_H
 
 #include <stdbool.h>
 

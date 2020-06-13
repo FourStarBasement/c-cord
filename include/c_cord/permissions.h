@@ -1,5 +1,5 @@
-#ifndef DISCORD_C_PERMISSIONS_H
-#define DISCORD_C_PERMISSIONS_H
+#ifndef C_CORD_PERMISSIONS_H
+#define C_CORD_PERMISSIONS_H
 
 enum PermissionType {
     ROLE,

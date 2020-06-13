@@ -1,5 +1,5 @@
-#ifndef DISCORD_C_ENDPOINTS_H
-#define DISCORD_C_ENDPOINTS_H
+#ifndef C_CORD_ENDPOINTS_H
+#define C_CORD_ENDPOINTS_H
 
 /* discord url */
 #define DISCORD_URL "https://discord.com/api/v6"

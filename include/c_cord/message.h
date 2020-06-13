@@ -1,5 +1,5 @@
-#ifndef DISCORD_C_MESSAGE_H
-#define DISCORD_C_MESSAGE_H
+#ifndef C_CORD_MESSAGE_H
+#define C_CORD_MESSAGE_H
 
 #include <stdbool.h>
 #include "channel.h"

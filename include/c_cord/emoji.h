@@ -1,5 +1,5 @@
-#ifndef DISCORD_C_EMOJI_H
-#define DISCORD_C_EMOJI_H
+#ifndef C_CORD_EMOJI_H
+#define C_CORD_EMOJI_H
 
 #include <stdbool.h>
 #include "user.h"

@@ -1,11 +1,7 @@
-#include "discord_c/client.h"
-#include "discord_c/endpoints.h"
+#include "c_cord/client.h"
+#include "c_cord/endpoints.h"
 
 #include <string.h>
-
-#include <uv.h>
-#include <evt_tls.h>
-#include <cjson/cJSON.h>
 
 discord_client* global_discord_client;
 
