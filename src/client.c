@@ -35,19 +35,24 @@ void discord_client_run(discord_client* _discord_client) {
 
     char* gateway_resp = discord_get(global_discord_client->discord_config->token_type == BOT ? strcat(DISCORD_URL, GATEWAY_BOT) : strcat(DISCORD_URL, GATEWAY), discord_headers());
 
+    printf("%s\n", gateway_resp);
+
     /* parse json */
     json_t* root;
     json_error_t error;
     root = json_loads(gateway_resp, 0, &error);
     free(gateway_resp);
-    char* url = json_string_value(json_object_get(root, "url"));
-    if (url == NULL) {
+    json_t* url_json = json_object_get(root, "url");
+    if (!json_is_string(url_json)) {
         printf("invalid token entered, exiting...");
+        json_decref(root);
+        json_decref(url_json);
         exit(0);
-    } else {
-        /* pretty sure it's port 80, but whatever. */
-        discord_ws_open(url, 443);
     }
+    char* url = json_string_value(json_object_get(root, "url"));
+    json_decref(root);
+    json_decref(url_json);
+    discord_ws_open(url, 443);
 }
 
 void discord_ws_response() {
