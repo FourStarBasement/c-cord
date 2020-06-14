@@ -2,6 +2,7 @@
 #include "c_cord/endpoints.h"
 
 #include <string.h>
+#include <jansson.h>
 
 discord_client* global_discord_client;
 
@@ -33,15 +34,17 @@ void discord_client_run(discord_client* _discord_client) {
     global_discord_client->run = true;
 
     char* gateway_resp = discord_get(global_discord_client->discord_config->token_type == BOT ? strcat(DISCORD_URL, GATEWAY_BOT) : strcat(DISCORD_URL, GATEWAY), discord_headers());
-    cJSON *json = cJSON_Parse(gateway_resp);
-    cJSON *url = cJSON_GetObjectItemCaseSensitive(json, "url");
+    json_t *root;
+    json_error_t error;
+    root = json_loads(gateway_resp, 0, &error);
+    json_t* url_json = json_object_get(root, "url");
+    char* url = json_string_value(url_json);
 
-    if (cJSON_IsString(url) && (url->valuestring != NULL)) {
-        discord_ws_open(url->valuestring, 443);
+    if (!strcmp("", url)) {
+        discord_ws_open(url, 443);
     } else {
-        discord_ws_open(DISCORD_WEBSOCKET_URL, 443);
-        /* printf("invalid token entered, exiting...");
-        exit(0); */
+        printf("invalid token entered, exiting...");
+        exit(0);
     }
 }
 
