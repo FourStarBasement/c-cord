@@ -4,7 +4,6 @@ project(c_cord C)
 # find depends
 find_package(OpenSSL REQUIRED)
 find_package(ZLIB REQUIRED)
-
 find_package(CURL QUIET COMPONENTS libcurl CONFIG)
 find_package(jansson CONFIG REQUIRED)
 find_package(Libwebsockets CONFIG REQUIRED)
