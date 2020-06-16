@@ -3,6 +3,10 @@
 
 #include <stdlib.h>
 #include <stdbool.h>
+#include <openssl/ssl.h>
+#include <openssl/bio.h>
+#include <openssl/err.h>
+#include <openssl/pem.h>
 #include "utils.h"
 
 enum token_type {

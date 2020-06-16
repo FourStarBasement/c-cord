@@ -3,6 +3,7 @@
 
 #include "utils.h"
 #include <stdbool.h>
+#include <jansson.h>
 
 enum PremiumType {
     NO_NITRO,
@@ -10,11 +11,13 @@ enum PremiumType {
     NITRO
 };
 
-struct User {
+typedef struct {
     /* username (ex: Intexisty) */
     char* username;
     /* discriminator (ex: 1744) */
     char* discriminator;
+    /* user id */
+    snowflake id;
     /* hashed avatar */
     char* avatar_hash;
     /* whether or not it is a bot account */
@@ -28,11 +31,13 @@ struct User {
     /* email only shows on current logged in user */
     char* email;
     int flags;
-    PremiumType premium_type;
+    enum PremiumType premium_type;
     int public_flags;
     /* when the user was created */
     char* created_at;
     char* mention;
-};
+} User;
 
+User* discord_user_new(json_t* json);
+User* discord_user_delete(User* user);
 #endif //DISCORD_C_USER_H
