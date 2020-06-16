@@ -2,7 +2,6 @@
 #include <curl/curl.h>
 #include <string.h>
 #include <stdlib.h>
-#include "client.h"
 
 size_t write_memory(void *contents, size_t size, size_t nmemb, void *userp) {
     size_t realsize = size * nmemb;
@@ -86,7 +85,7 @@ char* discord_patch(char* url, char* body, struct curl_slist* headers) {
 
 char* discord_delete(char* url, struct curl_slist* headers) {
     /* todo: implement */
-    return 'd';
+    return "d";
 }
 
 char* discord_get_string_value(json_t* json, char* key) {

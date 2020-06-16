@@ -1,7 +1,7 @@
 #include "user.h"
 
 User* discord_user_new(json_t* json) {
-    User* tmp;
+    User* tmp = malloc(sizeof(*tmp));
 
     /* parse username */
     tmp->username = discord_get_string_value(json, "username");
@@ -24,15 +24,12 @@ User* discord_user_new(json_t* json) {
     /* parse created_at */
     tmp->created_at = discord_get_string_value(json, "created_at");
     /* create mention */
-    char* mention = "<@!";
-    strcat(mention, discord_snowflake_str(tmp->id));
-    strcat(mention, ">");
-    tmp->mention = mention;
-    free(mention);
+    tmp->mention = malloc(25*sizeof(char));
+    sprintf(tmp->mention, "<@!%llu>", tmp->id);
 
     return tmp;
 }
 
-User* discord_user_delete(User* user) {
+void discord_user_delete(User* user) {
     free(user);
 }

@@ -16,7 +16,7 @@ typedef struct {
     /* username (ex: Intexisty) */
     char* username;
     /* discriminator (ex: 1744) */
-    char* discriminator;
+    int discriminator;
     /* user id */
     snowflake id;
     /* hashed avatar */
@@ -40,5 +40,5 @@ typedef struct {
 } User;
 
 User* discord_user_new(json_t* json);
-User* discord_user_delete(User* user);
+void discord_user_delete(User* user);
 #endif //DISCORD_C_USER_H

@@ -2,6 +2,7 @@
 #define C_CORD_UTILS_H
 
 #include <stdbool.h>
+#include "client.h"
 #include <jansson.h>
 
 /* epoch */

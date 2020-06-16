@@ -34,7 +34,13 @@ void discord_client_run(discord_client* _discord_client) {
 	/* set client running to true */
 	global_discord_client->run = true;
 
-	char* gateway_resp = discord_get("https://discord.com/api/v6/gateway", discord_headers());
+	char* gateway_resp;
+	if (global_discord_client->discord_config->token_type == BOT) {
+	    gateway_resp = discord_get(GATEWAY_BOT, discord_headers());
+	} else {
+	    gateway_resp = discord_get(GATEWAY, discord_headers());
+	}
+
 	/* parse json */
 	json_t* root;
 	json_error_t error;
