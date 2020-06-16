@@ -3,6 +3,7 @@
 
 #include "utils.h"
 #include <stdbool.h>
+#include <string.h>
 #include <jansson.h>
 
 enum PremiumType {

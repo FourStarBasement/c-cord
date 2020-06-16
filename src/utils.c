@@ -88,3 +88,42 @@ char* discord_delete(char* url, struct curl_slist* headers) {
     /* todo: implement */
     return 'd';
 }
+
+char* discord_get_string_value(json_t* json, char* key) {
+    json_t* tmp_json = json_object_get(json, key);
+    if (!json_is_string(tmp_json)) {
+        printf("error parsing %s", key);
+    }
+    char* tmp = json_string_value(tmp_json);
+    json_decref(tmp_json);
+    free(tmp_json);
+    return tmp;
+}
+
+bool discord_get_bool_value(json_t* json, char* key) {
+    json_t* tmp_json = json_object_get(json, key);
+    if (!json_is_boolean(tmp_json)) {
+        printf("error parsing %s", key);
+    }
+    bool tmp = json_boolean_value(tmp_json);
+    json_decref(tmp_json);
+    free(tmp_json);
+    return tmp;
+}
+
+int discord_get_int_value(json_t* json, char* key) {
+    json_t* tmp_json = json_object_get(json, key);
+    if (!json_is_integer(tmp_json)) {
+        printf("error parsing %s", key);
+    }
+    int tmp = json_integer_value(tmp_json);
+    json_decref(tmp_json);
+    free(tmp_json);
+    return tmp;
+}
+
+char* discord_snowflake_str(snowflake _snowflake) {
+    char* tmp = malloc(20*sizeof(char));
+    sprintf(tmp, "%llu", _snowflake);
+    return tmp;
+}
