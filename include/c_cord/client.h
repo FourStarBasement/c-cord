@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "utils.h"
+#include <jansson.h>
 
 enum token_type {
     BOT,

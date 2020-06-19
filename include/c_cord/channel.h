@@ -14,26 +14,28 @@ enum ChannelType {
     GROUP_STORE
 };
 
-struct Channel {
-    ChannelType channel_type;
+typedef struct {
+    char* icon;
+    snowflake category_id;
     snowflake guild_id;
     int position;
-    char* name;
-    char* topic;
-    bool nsfw;
     int bitrate;
     int user_limit;
     int rate_limit_per_user;
-    char* icon;
+    bool nsfw;
+} GuildChannel;
+
+
+typedef struct {
+    ChannelType channel_type;
+    union ChannelSpecifics {
+        GuildChannel guild_channel;
+    };
+    char* name;
+    char* topic;
     snowflake owner_id;
     snowflake application_id;
-    snowflake category_id;
     char* last_pin_timestamp;
-};
-
-struct GuildChannel {
-    struct Channel *internal_channel;
-    snowflake guild_id;
-};
+} Channel;
 
 #endif //DISCORD_C_CHANNEL_H

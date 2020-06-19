@@ -1,9 +1,6 @@
 [submodule "thirdparty/curl"]
 	path = thirdparty/curl
 	url = https://github.com/curl/curl
-[submodule "thirdparty/libuv"]
-	path = thirdparty/libuv
-	url = https://github.com/libuv/libuv
 [submodule "thirdparty/evt-tls"]
 	path = thirdparty/evt-tls
 	url = https://github.com/deleisha/evt-tls

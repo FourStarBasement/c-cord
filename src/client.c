@@ -2,7 +2,6 @@
 #include "c_cord/endpoints.h"
 
 #include <string.h>
-#include <jansson.h>
 #include <OpenSSL/ssl.h>
 #include <OpenSSL/bio.h>
 #include <OpenSSL/err.h>
