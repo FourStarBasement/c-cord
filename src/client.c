@@ -3,6 +3,10 @@
 
 #include <string.h>
 #include <jansson.h>
+#include <OpenSSL/ssl.h>
+#include <OpenSSL/bio.h>
+#include <OpenSSL/err.h>
+#include <OpenSSL/pem.h>
 #include <uv.h>
 
 discord_client* global_discord_client;

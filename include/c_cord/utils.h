@@ -59,9 +59,7 @@ struct curl_slist* discord_additional_headers(char* additional_headers);
 
 char* discord_get(char* url, struct curl_slist* headers);
 char* discord_post(char* url, char* body, struct curl_slist* headers);
-
-/* todo: implement */
-char* discord_patch(char* url, char* body, struct curl_slist* headers);
+char* discord_patch(char* url, char* body, struct curl_slist* headers) ;
 char* discord_delete(char* url, struct curl_slist* headers);
 
 char* discord_get_string_value(json_t* json, char* key);

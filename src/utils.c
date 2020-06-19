@@ -52,6 +52,9 @@ char* discord_get(char* url, struct curl_slist* headers) {
         curl_easy_cleanup(curl);
     }
 
+    free(url);
+    free(headers);
+
     return chunk.memory;
 }
 
@@ -75,17 +78,64 @@ char* discord_post(char* url, char* body, struct curl_slist* headers) {
         curl_easy_cleanup(curl);
     }
 
+    free(url);
+    free(headers);
+
     return chunk.memory;
 }
 
+/* unsure if works, needs testing */
 char* discord_patch(char* url, char* body, struct curl_slist* headers) {
-    /* todo: implement */
-    return "d";
+    CURL *curl;
+    CURLcode res;
+
+    struct memory_struct chunk;
+    chunk.memory = malloc(1);
+    chunk.size = 0;
+
+    curl = curl_easy_init();
+    if (curl) {
+        curl_easy_setopt(curl, CURLOPT_URL, url);
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_memory);
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &chunk);
+        curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, body);
+        curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "PATCH");
+
+        curl_easy_perform(curl);
+        curl_easy_cleanup(curl);
+    }
+
+    free(url);
+    free(headers);
+
+    return chunk.memory;
 }
 
 char* discord_delete(char* url, struct curl_slist* headers) {
-    /* todo: implement */
-    return "d";
+    CURL *curl;
+    CURLcode res;
+
+    struct memory_struct chunk;
+    chunk.memory = malloc(1);
+    chunk.size = 0;
+
+    curl = curl_easy_init();
+    if (curl) {
+        curl_easy_setopt(curl, CURLOPT_URL, url);
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_memory);
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &chunk);
+        curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+        curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "DELETE");
+
+        curl_easy_perform(curl);
+        curl_easy_cleanup(curl);
+    }
+
+    free(url);
+    free(headers);
+
+    return chunk.memory;
 }
 
 char* discord_get_string_value(json_t* json, char* key) {

@@ -31,5 +31,11 @@ User* discord_user_new(json_t* json) {
 }
 
 void discord_user_delete(User* user) {
+    free(user->username);
+    free(user->avatar_hash);
+    free(user->locale);
+    free(user->email);
+    free(user->created_at);
+    free(user->mention);
     free(user);
 }
