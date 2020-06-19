@@ -1,6 +1,10 @@
 #ifndef C_CORD_UTILS_H
 #define C_CORD_UTILS_H
 
+#include <stdbool.h>
+#include "client.h"
+#include <jansson.h>
+
 /* epoch */
 #define DISCORD_EPOCH = 1420070400000
 
@@ -55,9 +59,14 @@ struct curl_slist* discord_additional_headers(char* additional_headers);
 
 char* discord_get(char* url, struct curl_slist* headers);
 char* discord_post(char* url, char* body, struct curl_slist* headers);
-
-/* todo: implement */
-char* discord_patch(char* url, char* body, struct curl_slist* headers);
+char* discord_patch(char* url, char* body, struct curl_slist* headers) ;
 char* discord_delete(char* url, struct curl_slist* headers);
+
+char* discord_get_string_value(json_t* json, char* key);
+bool discord_get_bool_value(json_t* json, char* key);
+int discord_get_int_value(json_t* json, char* key);
+
+inline snowflake discord_str_snowflake(char* _snowflake) { return atoll(_snowflake); }
+char* discord_snowflake_str(snowflake _snowflake);
 
 #endif //DISCORD_C_UTILS_H
