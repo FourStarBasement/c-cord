@@ -4,3 +4,6 @@
 [submodule "thirdparty/libuv"]
 	path = thirdparty/libuv
 	url = https://github.com/libuv/libuv
+[submodule "thirdparty/evt-tls"]
+	path = thirdparty/evt-tls
+	url = https://github.com/deleisha/evt-tls
