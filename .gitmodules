@@ -3,4 +3,4 @@
 	url = https://github.com/curl/curl
 [submodule "thirdparty/evt-tls"]
 	path = thirdparty/evt-tls
-	url = https://github.com/deleisha/evt-tls
+	url = https://github.com/intexisty/evt-tls
