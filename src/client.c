@@ -7,6 +7,7 @@
 #include <OpenSSL/err.h>
 #include <OpenSSL/pem.h>
 #include <uv.h>
+#include <jansson.h>
 
 discord_client* global_discord_client;
 
