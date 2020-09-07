@@ -1,6 +1,9 @@
 [submodule "thirdparty/curl"]
 	path = thirdparty/curl
 	url = https://github.com/curl/curl
-[submodule "thirdparty/evt-tls"]
-	path = thirdparty/evt-tls
-	url = https://github.com/intexisty/evt-tls
+[submodule "thirdparty/libdill"]
+	path = thirdparty/libdill
+	url = https://github.com/intexisty/libdill
+[submodule "thirdparty/jansson"]
+	path = thirdparty/jansson
+	url = https://github.com/akheron/jansson
